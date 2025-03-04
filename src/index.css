@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+.banner1{
+    @apply w-1/2 bg-black text-white flex flex-col justify-center items-center text-center p-8;
+}
+
+.banner2{
+    @apply w-1/2 flex flex-col justify-center items-center;
+}
+
+.ipt{
+    @apply w-80 p-2 border border-black  text-center text-black placeholder:text-black mb-4;
+}
+
+.btn{
+    @apply w-80 px-6 py-2 bg-black text-white border-2 border-transparent  hover:bg-white hover:text-black hover:border-black;
+}
