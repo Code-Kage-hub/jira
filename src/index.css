@@ -9,7 +9,7 @@
 }
 
 .ipt{
-    @apply w-80 p-2 border border-black  text-center text-black placeholder:text-black mb-4;
+    @apply w-80 p-2 border border-black  text-center text-black placeholder:text-black mb-2;
 }
 
 .btn{
