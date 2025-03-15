@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { InputField, ButtonField } from "./Common"
+import { InputField, ButtonField } from "../Common"
 import { useForm } from "react-hook-form"
 
 function Signup() {
@@ -51,8 +51,11 @@ function Signup() {
                     <hr className="w-80 border-gray-400 my-4" />
                 </form>
                 <div className="flex flex-col items-center gap-4">
-                    <p className="text-gray-700">Already have an account?</p>
-                    <ButtonField label="LOGIN"></ButtonField>
+                    <p className="text-gray-700">Already have an account? {" "}
+                                <a href="/" className="text-blue-600 hover:underline">
+                                    Login
+                                </a>
+                    </p>
                 </div>
             </div>
 

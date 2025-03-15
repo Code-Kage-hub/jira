@@ -1,16 +1,19 @@
 import { useState } from 'react'
-import './App.css'
-import './index.css'
-import Login from './Components/login'
-import Signup from './Components/Signup'
-import ForgotPwd from './Components/ForgotPwd'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Login from './Components/Authentication/Login'
+import Signup from './Components/Authentication/Signup'
+import ForgotPwd from './Components/Authentication/ForgotPwd'
 
 function App() {
 
   return (
-  <>
-   <Login/>
-  </>
+    <Router>
+      <Routes>
+        <Route path = "/" element = {<Login/>}/>
+        <Route path = "/sign-up" element = {<Signup/>}/>
+        <Route path = "/forgot-password" element={<ForgotPwd/>}/>
+      </Routes>
+    </Router>
   )
 }
 

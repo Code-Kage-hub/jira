@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { InputField, ButtonField } from "./Common";
+import { InputField, ButtonField } from "../Common";
 
 function Login() {
 
@@ -39,13 +40,13 @@ function Login() {
 
                         <div className="flex flex-col items-center gap-4">
                             <a href="/" className="text-gray-700 hover:underline">
-                                Forgot password?
+                                <Link to ="/forgot-password">Forgot password?</Link>
                             </a>
                             <ButtonField label="Sign in with Google" />
                             <p className="text-gray-700">
                                 Don't have an account?{" "}
                                 <a href="/" className="text-blue-600 hover:underline">
-                                    Sign Up
+                                    <Link to = "/sign-up">Sign Up</Link>
                                 </a>
                             </p>
                         </div>
