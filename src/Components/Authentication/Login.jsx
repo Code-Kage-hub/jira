@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { InputField, ButtonField } from "../Common";
+import Google from '../../assets/Google.png';
 
 function Login() {
 
@@ -29,7 +30,12 @@ function Login() {
                             
                             {errors.username && <p className="text-red-600 mb-2">{errors.username.message}</p>}
 
-                            <InputField {...register("pwd",{required:"Password is required"})}
+                            <InputField {...register("pwd",{required:"Password is required",
+                                minLength:{
+                                    value:6,
+                                    message:"Password must be atleast 6 characters"
+                                }
+                            })}
                                 type="password"
                                 placeholder="Enter Password"
                             />
@@ -44,7 +50,10 @@ function Login() {
                             <a href="/" className="text-gray-700 hover:underline">
                                 <Link to ="/forgot-password">Forgot password?</Link>
                             </a>
-                            <ButtonField label="Sign in with Google" />
+                            <ButtonField className="flex items-center justify-center">
+                                <img src={Google} alt="" className="w-10 h-10  pt-[3px] inline-block" />
+                                <span>Continue with Google</span>
+                            </ButtonField>
                             <p className="text-gray-700">
                                 Don't have an account?{" "}
                                 <a href="/" className="text-blue-600 hover:underline">

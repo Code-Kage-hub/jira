@@ -1,9 +1,15 @@
 import React from "react";
 
-export function InputField({type,placeholder, ...rest}){
-    return <input type={type} placeholder={placeholder} {...rest} className="ipt"/>
+export function InputField({type,placeholder,className, ...rest}){
+    return <input 
+    type={type} 
+    placeholder={placeholder} 
+    className={`ipt ${className || ""}`}
+    {...rest}/>
 }
 
-export function ButtonField({label}){
-    return <button className="btn">{label}</button>
+export function ButtonField({label, className, children, ...rest}){
+    return <button className={`btn ${className || ""}`} {...rest}>
+        {children ? children : label}
+        </button>
 }

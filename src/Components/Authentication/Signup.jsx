@@ -1,6 +1,7 @@
 import { InputField, ButtonField } from "../Common"
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form"
+import Google from '../../assets/Google.png';
 
 function Signup() {
     
@@ -20,7 +21,7 @@ function Signup() {
                 <p className="mt-6 text-2xl">AI Powered Smart Action Planner</p>
             </div>
             <div className="banner2">
-                <h1 className="text-3xl font-bold mb-6">SIGN UP</h1>
+                <h1 className="text-3xl font-bold mb-6">Create an Account</h1>
                 <form className="flex flex-col items-center w-80" onSubmit={handleSubmit(submit)}>
                     <InputField type="text" placeholder="Enter Username" {...register("username",{required:"Username is required"})}/>
                     
@@ -55,6 +56,10 @@ function Signup() {
                     <hr className="w-80 border-gray-400 my-4" />
                 </form>
                 <div className="flex flex-col items-center gap-4">
+                    <ButtonField className="flex items-center justify-center">
+                        <img src={Google} alt="" className="w-10 h-10  pt-[3px] inline-block" />
+                        <span>Sign up with Google</span>
+                    </ButtonField>
                     <p className="text-gray-700">Already have an account? {" "}
                                 <a href="/" className="text-blue-600 hover:underline">
                                     Login
