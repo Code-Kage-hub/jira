@@ -1,13 +1,15 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { InputField, ButtonField } from "../Common";
 
 function Login() {
 
     const {register, handleSubmit, formState:{errors}} = useForm();
-
-    const submit = (data) => console.log("Form Submitter",data);
+    const navigate = useNavigate();
+    const submit = (data) => {
+        console.log("Form Submitter",data)
+        navigate("/Dashboard");
+    };
 
     return (
         <div className="h-screen w-screen flex">
