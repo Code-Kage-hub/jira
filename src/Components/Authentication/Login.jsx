@@ -44,20 +44,20 @@ function Login() {
             onSubmit={handleSubmit(submit)}
           >
             {/* Username Field */}
-            <div className="w-full flex flex-col">
+            <div className="relative w-full mt-6">
               <InputField
                 {...register("username", { required: "Username is required" })}
                 type="text"
                 placeholder="Enter Username"
                 className="w-full"
               />
-              <p className="text-red-600 text-sm text-center">
+              <p className="text-red-600 text-sm mt-1 absolute left-1/2 -translate-x-1/2 -bottom-5 text-center w-full min-h-[20px] whitespace-nowrap overflow-hidden text-ellipsis">
                 {errors.username?.message}
               </p>
             </div>
 
             {/* Password Field */}
-            <div className="relative w-full mt-2">
+            <div className="relative w-full mt-6">
               <InputField
                 {...register("password", {
                   required: "Password is required",
