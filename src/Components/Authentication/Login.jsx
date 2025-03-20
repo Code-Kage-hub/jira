@@ -10,6 +10,7 @@ import {
 } from "../redux/authSlice";
 import hide from "../../assets/hide.png";
 import visible from "../../assets/visible.png";
+import { DevTool } from "@hookform/devtools";
 
 function Login() {
   const dispatch = useDispatch();
@@ -17,6 +18,7 @@ function Login() {
   const {
     register,
     handleSubmit,
+    control,
     formState: { errors },
   } = useForm();
   const { username, password, showPassword } = useSelector(
@@ -109,6 +111,7 @@ function Login() {
             </p>
           </div>
         </>
+        <DevTool control={control} />
       </div>
     </div>
   );

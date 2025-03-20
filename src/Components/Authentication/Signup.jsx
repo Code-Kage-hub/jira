@@ -11,6 +11,7 @@ import {
 } from "../redux/authSlice";
 import hide from "../../assets/hide.png";
 import visible from "../../assets/visible.png";
+import { DevTool } from "@hookform/devtools";
 
 function Signup() {
   const dispatch = useDispatch();
@@ -20,6 +21,7 @@ function Signup() {
     register,
     handleSubmit,
     watch,
+    control,
     formState: { errors },
   } = useForm();
   const navigate = useNavigate();
@@ -155,6 +157,7 @@ function Signup() {
             </a>
           </p>
         </div>
+        <DevTool control={control} />
       </div>
     </div>
   );
