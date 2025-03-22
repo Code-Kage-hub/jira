@@ -2,8 +2,21 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { InputField, ButtonField } from "../Common";
 import Google from '../../assets/Google.png';
+import MobLog from "../Mobile/MobLog";
+import { useEffect, useState } from "react";
 
 function Login() {
+
+    const [isMobile, setIsMobile] = useState(window.innerWidth<768);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
+        }
+            window.addEventListener("resize", handleResize);
+            return () => window.removeEventListener("resize", handleResize); //clearing the eventListener
+        
+    },[]);
 
     const {register, handleSubmit, formState:{errors}} = useForm();
     const navigate = useNavigate();
@@ -11,6 +24,11 @@ function Login() {
         console.log("Form Submitter",data)
         navigate("/Dashboard");
     };
+
+    //return staments should place after all hook initialization
+    if(isMobile){
+        return <MobLog/> ;
+    }
 
     return (
         <div className="h-screen w-screen flex">
@@ -47,18 +65,14 @@ function Login() {
                         </form>
 
                         <div className="flex flex-col items-center gap-4">
-                            <a href="/" className="text-gray-700 hover:underline">
-                                <Link to ="/forgot-password">Forgot password?</Link>
-                            </a>
+                             <Link to ="/forgot-password">Forgot password?</Link>
                             <ButtonField className="flex items-center justify-center">
                                 <img src={Google} alt="" className="w-10 h-10  pt-[3px] inline-block" />
                                 <span>Continue with Google</span>
                             </ButtonField>
                             <p className="text-gray-700">
                                 Don't have an account?{" "}
-                                <a href="/" className="text-blue-600 hover:underline">
-                                    <Link to = "/sign-up">Sign Up</Link>
-                                </a>
+                                <Link to = "/sign-up" className="text-blue-600 hover:underline">Sign Up</Link>
                             </p>
                         </div>
                     </>

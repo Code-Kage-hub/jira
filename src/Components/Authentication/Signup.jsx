@@ -1,7 +1,9 @@
-import { InputField, ButtonField } from "../Common"
+import { InputField, ButtonField } from "../Common";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form"
 import Google from '../../assets/Google.png';
+import { useState, useEffect} from "react";
+import MobSignUp from "../Mobile/MobSignUp";
 
 function Signup() {
     
@@ -12,6 +14,21 @@ function Signup() {
         console.log("Form is submitted", data)
         navigate("/Dashboard");
     };
+
+    const [isMobile, setIsMobile] = useState(window.innerWidth<768);
+    
+        useEffect(() => {
+            const handleResize = () => {
+                setIsMobile(window.innerWidth < 768);
+            }
+                window.addEventListener("resize", handleResize);
+                return () => window.removeEventListener("resize", handleResize); //clearing the eventListener
+        },[]);
+
+     //return staments should place after all hook initialization
+     if(isMobile){
+        return <MobSignUp/> ;
+    }
 
     return (
         <div className="h-screen w-screen flex">

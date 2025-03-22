@@ -1,7 +1,8 @@
-import { InputField, ButtonField } from "../Common"
-import { useForm } from "react-hook-form"
-import { useState } from "react";
+import { InputField, ButtonField } from "../Common";
+import { useForm } from "react-hook-form";
+import { useState, useEffect} from "react";
 import EmailSentImage from "../../assets/EmailSent.jpg"
+import MobFrgt from "../Mobile/MobFrgt";
 
 function ForgotPwd (){
 
@@ -12,7 +13,21 @@ function ForgotPwd (){
         console.log("Form submitted", data)
         setSubmitted(true);
     };
+    
+    const [isMobile, setIsMobile] = useState(window.innerWidth<768);
 
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
+        }
+            window.addEventListener("resize", handleResize);
+            return () => window.removeEventListener("resize", handleResize); //clearing the eventListener
+    },[]);
+
+ //return staments should place after all hook initialization
+ if(isMobile){
+    return <MobFrgt/> ;
+}
     return (
         <div className="h-screen w-screen flex">
             <div className="banner1">
