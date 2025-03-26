@@ -20,6 +20,24 @@
     @apply text-black w-[80%] block text-lg bg-white font-bold p-2 hover:bg-black hover:text-white hover:border-white hover:border-1;
 }
 
+.mlbl{
+    @apply bg-black text-white border-white font-bold p-2 hover:text-black hover:bg-white hover:border block my-2 text-left pl-3;
+}
+
+.Manual
+{
+    @apply bg-white p-2 sm:p-5 w-full sm:w-11/12 md:w-4/5 lg:w-3/4 max-w-5xl shadow-[0_4px_10px_rgba(255,255,255,0.4)] border border-gray-200 grid grid-cols-1 md:grid-cols-2 gap-4 items-start min-h-fit;
+}
+
+.white-container{
+    @apply bg-white flex flex-col justify-center items-center p-8 w-full sm:w-80 md:w-96 lg:w-[700px] 
+    shadow-[0_4px_10px_rgba(255,255,255,0.4)] border border-gray-200;
+}
+
+.heading{
+    @apply text-black font-bold text-3xl md:text-4xl text-center w-full;
+}
+
 @media (max-width: 360px) {
     .ipt, .btn {
         @apply w-74 mx-4; /* Reduce width & add margin */
