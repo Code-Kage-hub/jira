@@ -20,9 +20,11 @@
     @apply text-black w-[80%] block text-lg bg-white font-bold p-2 hover:bg-black hover:text-white hover:border-white hover:border-1;
 }
 
-.mlbl{
-    @apply bg-black text-white border-white font-bold p-2 hover:text-black hover:bg-white hover:border block my-2 text-left pl-3;
-}
+.mlbl {
+    @apply bg-black text-white border-white font-bold p-2 
+           hover:text-black hover:bg-white hover:border flex justify-between items-center my-2 text-left pl-3;
+  }
+  
 
 .Manual
 {

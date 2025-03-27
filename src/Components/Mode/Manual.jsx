@@ -1,18 +1,19 @@
 import '../../index.css';
 import { InputField, ButtonField } from '../Common';
+import Edit from '../../assets/Edit.png';
+import Completed from '../../assets/Completed.png';
+import { useState } from 'react';
 
 function Manual() {
-    const topics = Array.from({ length: 15 }, (_, i) => `Topic ${i + 1}`);
+    const [topics, setTopics] = useState(["Topic 1", "Topic 2", "Topic 3", "Topic 4", "Topic 5", "Topic 1", "Topic 2", "Topic 3", "Topic 4", "Topic 5"]);
 
     return (
         <div className="bg-black flex flex-col justify-center items-center w-screen min-h-screen p-4">
-
-            {/* Fixed Manual Mode Heading */}
             <div className="fixed top-0 left-0 w-full bg-black py-4 z-50">
                 <h1 className="text-white font-bold text-3xl text-center">Manual Mode</h1>
             </div>
 
-            <div className="Manual mt-16 w-full max-w-2xl"> 
+            <div className="Manual mt-16 w-full max-w-2xl">
                 <div className="flex flex-col justify-center items-center bg-white p-6 border shadow-lg w-full">
                     <h1 className="text-black font-bold text-3xl md:text-4xl text-center">Enter the topic</h1>
                     <form className="flex flex-col justify-center items-center w-full gap-4 mt-6">
@@ -41,18 +42,27 @@ function Manual() {
                     </form>
                 </div>
 
-                <div className="shadow-md p-6 w-full border self-start max-h-[400px] overflow-y-auto">
+                <div className="shadow-md p-6 w-full border self-start max-h-[400px] bg-white">
                     <div className="text-black text-2xl font-semibold text-center w-full bg-white sticky top-0 z-10 p-2 border-b border-gray-300">
                         Tasks
                     </div>
                     <div className="text-gray-600 flex flex-col items-start gap-2 p-2 max-h-[300px] overflow-y-auto pt-2">
-                        {Array.from({ length: 20 }, (_, i) => (
-                            <label key={i} className="block p-2 border-b border-gray-200 w-full mlbl ">
-                                Topic {i + 1}
-                            </label>
+                        {topics.map((topic, i) => (
+                            <div key={i} className="flex justify-between items-center p-2 border-b border-gray-200 w-full bg-black text-white">
+                                <span className="font-bold">{topic}</span>
+                                <div className="flex gap-2">
+                                    <button>
+                                        <img src={Edit} alt="Edit" className="w-5 h-5 mr-3" />
+                                    </button>
+                                    <button>
+                                        <img src={Completed} alt="Completed" className="w-5 h-5" />
+                                    </button>
+                                </div>
+                            </div>
                         ))}
                     </div>
                 </div>
+
 
                 <div className="flex justify-center items-center w-full mt-4  col-span-1 md:col-span-2">
                     <ButtonField label="Continue" className="!w-auto font-bold text-center" />
