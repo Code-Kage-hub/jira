@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { InputField, ButtonField } from '../Common';
 import Edit from '../../assets/Edit.png';
 import Completed from '../../assets/Completed.png';
+import { useNavigate } from 'react-router-dom';
 
 function Manual() {
     const [topic, setTopic] = useState('');
@@ -12,6 +13,12 @@ function Manual() {
     const [time, setTime] = useState(1);
     const [mode, setMode] = useState('Easy');
     const [editIndex, setEditIndex] = useState(null);
+
+    const navigate = useNavigate();
+
+    const handleContinue = () => {
+        navigate('/dashboard');
+    };
 
     // Handle topic input change
     function handleTopicChange(event) {
@@ -142,7 +149,7 @@ function Manual() {
 
                 {finalTopic && (
                     <div className="flex justify-center items-center w-full mt-4 col-span-1 md:col-span-2 ">
-                        <ButtonField label="Continue" className="!w-auto font-bold text-center" />
+                        <ButtonField label="Continue" className="!w-auto font-bold text-center" onClick= {handleContinue}/>
                     </div>
                 )}
             </div>

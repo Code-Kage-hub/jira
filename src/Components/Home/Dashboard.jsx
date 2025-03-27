@@ -1,15 +1,26 @@
 import React, { useState } from "react";
 import "../../index.css";
 import { InputField, ButtonField } from "../Common";
-import { Menu, Search } from "lucide-react"; 
+import { Menu, Search } from "lucide-react";
+import { useNavigate } from 'react-router-dom';
 
 function Dashboard() {
 
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
+    const [selectedMode, setSelectedMode] = useState('Learning');
+    const navigate = useNavigate();
 
     const handleClick = () => setIsSidebarOpen(!isSidebarOpen);
     const toggleSearch = () => setIsSearchOpen(!isSearchOpen);
+
+    const handleCreate = () => {
+        if (selectedMode === 'AI') {
+            navigate('/ai');
+        } else if (selectedMode === 'Manual') {
+            navigate('/manual');
+        }
+    };
 
     return (
         <div className="flex">
@@ -80,9 +91,15 @@ function Dashboard() {
 
                         {/* Dropdown (Hidden on Small & Medium Screens when Search is Open) */}
                         <div className={isSearchOpen ? "hidden" : "block"}>
-                            <select className="p-2 bg-black text-white font-bold">
+                            <select 
+                                className="p-2 bg-black text-white font-bold"
+                                value={selectedMode}
+                                onChange={(e) => setSelectedMode(e.target.value)}
+                            >
                                 <option className="text-white">Learning</option>
                                 <option className="text-white">ToDo</option>
+                                <option className="text-white">AI</option>
+                                <option className="text-white">Manual</option>
                             </select>
                         </div>
                     </div>
@@ -91,7 +108,11 @@ function Dashboard() {
                 {/* Header Section */}
                 <div className="w-full flex justify-between items-center px-4 mt-6">
                     <h1 className="text-4xl font-bold text-left">Today's Learning Plan</h1>
-                    <ButtonField label="Create" className="!w-auto" />
+                    <ButtonField 
+                        label="Create" 
+                        className="!w-auto" 
+                        onClick={handleCreate}
+                    />
                 </div>
 
                 {/* Content Section */}
@@ -101,7 +122,6 @@ function Dashboard() {
                         <div className="border-black border-1 m-4">
                             <div className="bg-black text-white">
                                 <h2 className="font-bold">Task Name</h2>
-                                <p className="border-b-1">Task Description</p>
                             </div>
                             <ButtonField label="Extend Deadline" className="block m-2 !w-auto" />
                             <ButtonField label="Re-priotrize" className="block m-2 !w-auto" />
@@ -113,7 +133,6 @@ function Dashboard() {
                         <div className="border-black border-1 m-4">
                             <div className="bg-black text-white">
                                 <h2 className="font-bold">Task Name</h2>
-                                <p className="border-b-1">Task Description</p>
                             </div>
                             <ButtonField label="View Details" className="block m-2 !w-auto" />
                             <ButtonField label="Change Category" className="block m-2 !w-auto" />
@@ -125,7 +144,6 @@ function Dashboard() {
                         <div className="border-black border-1 m-4">
                             <div className="bg-black text-white">
                                 <h2 className="font-bold">Task Name</h2>
-                                <p className="border-b-1">Task Description</p>
                             </div>
                             <ButtonField label="Archieve" className="block m-2 !w-auto" />
                             <ButtonField label="Review" className="block m-2 !w-auto" />
@@ -137,7 +155,6 @@ function Dashboard() {
                         <div className="border-black border-1 m-4">
                             <div className="bg-black text-white">
                                 <h2 className="font-bold">Task Name</h2>
-                                <p className="border-b-1">Task Description</p>
                             </div>
                             <ButtonField label="Re-Schedule" className="block m-2 !w-auto" />
                             <ButtonField label="Change Category" className="block m-2 !w-auto" />
