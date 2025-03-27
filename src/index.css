@@ -42,3 +42,8 @@
         @apply w-74 mx-4; /* Reduce width & add margin */
     }
 }
+
+.completed-task {
+    background-color: #22c55e;
+    color: white;
+}

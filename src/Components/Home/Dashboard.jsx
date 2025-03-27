@@ -14,10 +14,11 @@ function Dashboard() {
     const handleClick = () => setIsSidebarOpen(!isSidebarOpen);
     const toggleSearch = () => setIsSearchOpen(!isSearchOpen);
 
+    // Update the handleCreate function
     const handleCreate = () => {
-        if (selectedMode === 'AI') {
+        if (selectedMode === 'Learning') {
             navigate('/ai');
-        } else if (selectedMode === 'Manual') {
+        } else if (selectedMode === 'ToDo') {
             navigate('/manual');
         }
     };
@@ -91,6 +92,7 @@ function Dashboard() {
 
                         {/* Dropdown (Hidden on Small & Medium Screens when Search is Open) */}
                         <div className={isSearchOpen ? "hidden" : "block"}>
+                            {/* Update the dropdown options */}
                             <select 
                                 className="p-2 bg-black text-white font-bold"
                                 value={selectedMode}
@@ -98,8 +100,6 @@ function Dashboard() {
                             >
                                 <option className="text-white">Learning</option>
                                 <option className="text-white">ToDo</option>
-                                <option className="text-white">AI</option>
-                                <option className="text-white">Manual</option>
                             </select>
                         </div>
                     </div>

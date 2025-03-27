@@ -127,10 +127,14 @@ function Manual() {
                         <div className="text-black text-2xl font-semibold text-center w-full bg-white sticky top-0 z-10 p-2 border-b border-gray-300">
                             {finalTopic} - Subtopics
                         </div>
-                        <div className="text-gray-600 flex flex-col items-start gap-2 p-2 overflow-y-auto max-h-[350px] pt-2">
+                        {/* In the render section, update the subtopic div styling */}
+                        <div className="text-gray-600 flex flex-col items-start gap-2 p-2 overflow-y-auto max-h-[350px] pt-2 bg-white">
                             {subtopics.map((subtopic, i) => (
-                                <div key={i} className={`mlbl ${subtopic.done ? 'bg-green-500' : ''} flex justify-between items-center p-2 border-b border-gray-200 w-full`}>
-                                    <span>{subtopic.name} (⏳ {subtopic.time} week, 🎯 {subtopic.mode})</span>
+                                <div 
+                                    key={i} 
+                                    className={`${subtopic.done ? 'completed-task' : 'mlbl'} flex justify-between items-center p-2 border-b border-gray-200 w-full`}
+                                >
+                                    <span className="font-bold">{subtopic.name} (⏳ {subtopic.time} week, 🎯 {subtopic.mode})</span>
                                     <div className="flex gap-2">
                                         {!subtopic.done && (
                                             <button onClick={() => handleEditSubtopic(i)}>
