@@ -19,12 +19,9 @@
 .lbl{
     @apply text-black w-[80%] block text-lg bg-white font-bold p-2 hover:bg-black hover:text-white hover:border-white hover:border-1;
 }
-
 .mlbl {
-    @apply bg-black text-white border-white font-bold p-2 
-           hover:text-black hover:bg-white hover:border flex justify-between items-center my-2 text-left pl-3;
-  }
-  
+    @apply bg-black text-white font-bold p-2 border border-transparent  hover:text-black hover:bg-white hover:border-zinc-950 flex justify-between items-center my-2;
+}
 
 .Manual
 {

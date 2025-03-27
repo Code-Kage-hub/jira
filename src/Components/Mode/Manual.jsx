@@ -46,9 +46,9 @@ function Manual() {
                     <div className="text-black text-2xl font-semibold text-center w-full bg-white sticky top-0 z-10 p-2 border-b border-gray-300">
                         Tasks
                     </div>
-                    <div className="text-gray-600 flex flex-col items-start gap-2 p-2 max-h-[300px] overflow-y-auto pt-2">
+                    <div className="flex flex-col items-start gap-2 p-2 max-h-[300px] overflow-y-auto pt-2">
                         {topics.map((topic, i) => (
-                            <div key={i} className="flex justify-between items-center p-2 border-b border-gray-200 w-full bg-black text-white">
+                            <div key={i} className="flex mlbl justify-between items-center p-2  w-full">
                                 <span className="font-bold">{topic}</span>
                                 <div className="flex gap-2">
                                     <button>
