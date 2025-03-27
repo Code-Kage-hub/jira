@@ -123,7 +123,7 @@ function Manual() {
                         <div className="text-gray-600 flex flex-col items-start gap-2 p-2 overflow-y-auto max-h-[350px] pt-2">
                             {subtopics.map((subtopic, i) => (
                                 <div key={i} className={`mlbl ${subtopic.done ? 'bg-green-500' : ''} flex justify-between items-center p-2 border-b border-gray-200 w-full`}>
-                                    <span>{subtopic.name} (⏳ {subtopic.time} min, 🎯 {subtopic.mode})</span>
+                                    <span>{subtopic.name} (⏳ {subtopic.time} week, 🎯 {subtopic.mode})</span>
                                     <div className="flex gap-2">
                                         {!subtopic.done && (
                                             <button onClick={() => handleEditSubtopic(i)}>
